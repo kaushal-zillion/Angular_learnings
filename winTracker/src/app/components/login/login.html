@@ -1,0 +1,37 @@
+<div class="flex items-center justify-center min-h-[80vh] bg-gray-50 px-4">
+    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-xl border border-gray-100">
+
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900">Welcome Back</h2>
+            <p class="mt-2 text-sm text-gray-500">Please enter your details to sign in.</p>
+        </div>
+
+        <form (ngSubmit)="handleLogin()" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 ml-1 mb-1">Email Address</label>
+                <input [(ngModel)]="email" name="email" type="email" required placeholder="you@example.com"
+                    class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none transition-all" />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 ml-1 mb-1">Password</label>
+                <input [(ngModel)]="password" name="password" type="password" required placeholder="••••••••"
+                    class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none transition-all" />
+            </div>
+
+            <button type="submit"
+                class="w-full py-4 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-200 transition-all active:scale-[0.98]">
+                Sign In
+            </button>
+        </form>
+
+        <div class="text-center">
+            <p class="text-sm text-gray-600">
+                New here?
+                <a routerLink="/signup" class="font-bold text-blue-600 hover:text-blue-500 transition-colors">Create an
+                    account</a>
+            </p>
+        </div>
+
+    </div>
+</div>

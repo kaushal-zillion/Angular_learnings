@@ -1,0 +1,16 @@
+<nav class="bg-slate-800 text-white p-4 flex justify-between items-center">
+    <h1 class="font-bold text-xl">TaskFlow</h1>
+    <div class="space-x-4">
+        @if (!auth.currentUser()) {
+        <a routerLink="/login" class="hover:text-blue-300">Login</a>
+        <a routerLink="/signup" class="bg-blue-600 px-3 py-1 rounded">Sign Up</a>
+        } @else {
+        <span>{{ auth.currentUser()?.email }}</span>
+        <button (click)="auth.logout()" class="text-red-400">Logout</button>
+        }
+    </div>
+</nav>
+
+<main class="p-8 bg-gray-100 min-h-screen">
+    <router-outlet></router-outlet>
+</main>

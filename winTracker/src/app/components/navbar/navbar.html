@@ -1,0 +1,11 @@
+<nav class="bg-slate-800 text-white p-4 flex justify-between">
+    <h1 class="font-bold">TaskMaster</h1>
+    <div class="space-x-4">
+        @if (!authService.currentUser()) {
+        <a routerLink="/login" class="hover:underline">Login</a>
+        <a routerLink="/signup" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Get Started</a>
+        } @else {
+        <button (click)="authService.logout()" class="text-red-400">Logout</button>
+        }
+    </div>
+</nav>

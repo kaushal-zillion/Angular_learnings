@@ -1,0 +1,40 @@
+<div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-xl border border-gray-100">
+    <h2 class="text-3xl font-extrabold text-gray-800 mb-8">My Tasks</h2>
+
+    <div class="flex gap-3 mb-8">
+        <input [(ngModel)]="newTaskTitle" (keyup.enter)="addTask()" placeholder="What's on your mind?"
+            class="flex-1 p-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" />
+        <button (click)="addTask()"
+            class="bg-blue-600 text-white px-8 py-4 rounded-2xl hover:bg-blue-700 transition-all font-bold shadow-lg shadow-blue-200">
+            Add
+        </button>
+    </div>
+
+    <div class="space-y-4">
+        @for (task of taskService.tasks(); track task.id) {
+        <div
+            class="flex items-center justify-between p-5 bg-white border border-gray-100 rounded-2xl hover:shadow-md transition-all group">
+            <div class="flex items-center gap-4">
+                <input type="checkbox" [checked]="task.isCompleted" (change)="toggleTask(task.id)"
+                    class="w-6 h-6 rounded-full border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer" />
+                <span [class.line-through]="task.isCompleted" [class.text-gray-400]="task.isCompleted"
+                    class="text-lg font-medium text-gray-700 transition-all">
+                    {{ task.title }}
+                </span>
+            </div>
+
+            <button (click)="deleteTask(task.id)" class="text-gray-300 hover:text-red-500 p-2 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+            </button>
+        </div>
+        } @empty {
+        <div class="text-center py-12">
+            <p class="text-gray-400 text-lg">No tasks yet. Start by adding one!</p>
+        </div>
+        }
+    </div>
+</div>
