@@ -1,0 +1,26 @@
+<header style="background: #0d0d0d; border-bottom: 3px solid #0d0d0d; position: sticky; top: 0; z-index: 50;">
+    <div class="container mx-auto p-4">
+        <nav>
+            <ul class="flex justify-between items-center">
+
+                <li>
+                    <a routerLink="/"
+                        style="font-size: 26px; letter-spacing: 0.08em; color: #f7f3ee; text-decoration: none; transition: color 0.15s;"
+                        onmouseover="this.style.color='#d4f000';" onmouseout="this.style.color='#f7f3ee';">
+                        COMMERCE
+                    </a>
+                </li>
+
+                <li>
+                    <a routerLink="/cart"
+                        style="font-size: 13px; letter-spacing: 0.18em; color: #0d0d0d; background: #d4f000; padding: 15px 18px 6px; text-decoration: none; border: 2px solid #d4f000; transition: background 0.15s, color 0.15s;"
+                        onmouseover="this.style.background='#f7f3ee'; this.style.color='#0d0d0d'; this.style.borderColor='#f7f3ee';"
+                        onmouseout="this.style.background='#d4f000'; this.style.color='#0d0d0d'; this.style.borderColor='#d4f000';">
+                        <ng-icon name="heroShoppingCart" class="text-xl"></ng-icon>{{ cartService.cart().length }}
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,131 @@
+<div style="min-height: 100vh; background: #f7f3ee; padding: 48px 16px; font-family: 'DM Mono', monospace;">
+    <div class="mx-auto max-w-7xl">
+        <h1
+            style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); letter-spacing: 0.05em; color: #0d0d0d; line-height: 1; border-bottom: 3px solid #0d0d0d; padding-bottom: 25px;">
+            Shopping Cart
+        </h1>
+        <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-12">
+            <!-- Cart Items -->
+            <section class="lg:col-span-8">
+                <div class="space-y-4 h-full">
+                    @for (item of cartService.cart(); track item.id) {
+                    <div class="flex items-center gap-6 bg-white p-4"
+                        style="border: 2px solid #0d0d0d; outline: 1px solid #0d0d0d; outline-offset: 3px;">
+
+                        <!-- Image -->
+                        <div class="h-24 w-24 shrink-0 overflow-hidden p-2"
+                            style="background: #f0ece4; border: 2px solid #0d0d0d;">
+                            <img [src]="item.image" [alt]="item.title" class="h-full w-full object-contain" />
+                        </div>
+
+                        <div class="flex flex-1 flex-col">
+                            <div class="flex justify-between items-start gap-4">
+                                <h3 class="line-clamp-1"
+                                    style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.04em; color: #0d0d0d; line-height: 1.1;">
+                                    {{ item.title }}
+                                </h3>
+                                <button (click)="cartService.removeItem(item.id)" class="cursor-pointer shrink-0"
+                                    style="font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 0.15em; background: transparent; color: #0d0d0d; border: 1.5px solid #0d0d0d; padding: 4px 10px 2px; transition: background 0.15s, color 0.15s;"
+                                    onmouseover="this.style.background='#0d0d0d'; this.style.color='#f7f3ee';"
+                                    onmouseout="this.style.background='transparent'; this.style.color='#0d0d0d';">
+                                    REMOVE
+                                </button>
+                            </div>
+
+                            <p class="mt-1 line-clamp-1" style="font-size: 11px; color: #7a756e; line-height: 1.6;">
+                                {{ item.description }}
+                            </p>
+
+                            <div class="mt-4 flex items-center justify-between">
+                                <!-- Qty control -->
+                                <div class="flex items-center" style="border: 2px solid #0d0d0d;">
+                                    <button (click)="cartService.decreaseQty(item)" class="cursor-pointer"
+                                        style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: transparent; color: #0d0d0d; border: none; border-right: 2px solid #0d0d0d; transition: background 0.12s;"
+                                        onmouseover="this.style.background='#d4f000';"
+                                        onmouseout="this.style.background='transparent';">
+                                        −
+                                    </button>
+                                    <span
+                                        style="font-family: 'Bebas Neue', sans-serif; font-size: 18px; width: 40px; text-align: center; color: #0d0d0d;">
+                                        {{ item.quantity }}
+                                    </span>
+                                    <button (click)="cartService.increaseQty(item)" class="cursor-pointer"
+                                        style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: transparent; color: #0d0d0d; border: none; border-left: 2px solid #0d0d0d; transition: background 0.12s;"
+                                        onmouseover="this.style.background='#d4f000';"
+                                        onmouseout="this.style.background='transparent';">
+                                        +
+                                    </button>
+                                </div>
+
+                                <span
+                                    style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #0d0d0d; line-height: 1;">
+                                    ${{ (item.price * item.quantity).toFixed(2) }}
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    } @empty {
+                    <div class="text-center py-20 h-full" style="border: 2px dashed #c8c2b6;">
+                        <p
+                            style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.06em; color: #7a756e;">
+                            Your cart is empty.
+                        </p>
+                        <button routerLink="/" class="mt-4 cursor-pointer"
+                            style="font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 0.18em; background: #0d0d0d; color: #f7f3ee; border: 2px solid #0d0d0d; padding: 10px 24px 8px; transition: background 0.15s, color 0.15s;"
+                            onmouseover="this.style.background='#d4f000'; this.style.color='#0d0d0d';"
+                            onmouseout="this.style.background='#0d0d0d'; this.style.color='#f7f3ee';">
+                            CONTINUE SHOPPING
+                        </button>
+                    </div>
+                    }
+                </div>
+            </section>
+            <!-- Order Summary -->
+            <section class="lg:col-span-4">
+                <div class="sticky top-32 bg-white p-6"
+                    style="border: 2px solid #0d0d0d; outline: 1px solid #0d0d0d; outline-offset: 3px;">
+
+                    <h2
+                        style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em; color: #0d0d0d; border-bottom: 2px solid #0d0d0d; padding-bottom: 12px;">
+                        Order Summary
+                    </h2>
+
+                    <div class="mt-6 space-y-4">
+                        <div class="flex justify-between"
+                            style="font-size: 12px; color: #7a756e; letter-spacing: 0.05em;">
+                            <span>SUBTOTAL</span>
+                            <span style="color: #0d0d0d;">${{ subtotal().toFixed(2) }}</span>
+                        </div>
+                        <div class="flex justify-between"
+                            style="font-size: 12px; color: #7a756e; letter-spacing: 0.05em;">
+                            <span>SHIPPING</span>
+                            <span
+                                style="font-family: 'Bebas Neue', sans-serif; font-size: 14px; color: #0d0d0d; letter-spacing: 0.1em;">
+                                {{ cartService.cart().length > 0
+                                ? (isShippingFree ? 'FREE' : '$299.00')
+                                : '$0.00'
+                                }} </span>
+                        </div>
+                        <div style="border-top: 2px solid #0d0d0d; padding-top: 16px;"
+                            class="flex justify-between items-baseline">
+                            <span
+                                style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.06em; color: #0d0d0d;">TOTAL</span>
+                            <span
+                                style="font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: #0d0d0d; line-height: 1;">${{
+                                total().toFixed(2) }}</span>
+                        </div>
+                    </div>
+
+                    <button class="mt-8 w-full cursor-pointer"
+                        style="background: #0d0d0d; color: #d4f000; border: 2px solid #0d0d0d; font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 0.2em; padding: 16px 24px 13px; transition: background 0.15s, color 0.15s;"
+                        onmouseover="this.style.background='#d4f000'; this.style.color='#0d0d0d';"
+                        onmouseout="this.style.background='#0d0d0d'; this.style.color='#d4f000';">
+                        CHECKOUT NOW
+                    </button>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
