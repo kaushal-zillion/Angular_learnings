@@ -1,0 +1,83 @@
+<div class="main-banner">
+    <div class="mx-auto container px-4">
+        <h1>
+            Shopping Cart
+        </h1>
+        <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-12">
+            <!-- Cart Items -->
+            <section class="lg:col-span-8">
+                <div class="space-y-10 h-full">
+                    @for (item of cartService.cart(); track item.id) {
+                    <div class="card gap-6 frame">
+                        <!-- Image -->
+                        <div class="h-28 w-28 shrink-0 overflow-hidden p-2 card-img">
+                            <img [src]="item.image" [alt]="item.title" class="h-full w-full object-contain" />
+                        </div>
+
+                        <div class="flex flex-1 flex-col">
+                            <div class="flex justify-between items-start gap-4">
+                                <div class="w-10/12">
+                                    <h3 class="line-clamp-1 card-title">
+                                        {{ item.title }}
+                                    </h3>
+                                    <p class="mt-1 line-clamp-1"
+                                        style="font-size: 11px; color: #7a756e; line-height: 1.6;">
+                                        {{ item.description }}
+                                    </p>
+                                </div>
+                                <button (click)="cartService.removeItem(item.id)" class="card-remove-btn">
+                                    REMOVE
+                                </button>
+                            </div>
+
+                            <div class="mt-7 flex items-end justify-between">
+                                <!-- Qty control -->
+                                <div class="flex items-center card-qty-btns">
+                                    <button (click)="cartService.decreaseQty(item)">−</button>
+                                    <span>{{ item.quantity }}</span>
+                                    <button (click)="cartService.increaseQty(item)">+</button>
+                                </div>
+                                <span class="card-sub-total">
+                                    ${{ (item.price * item.quantity).toFixed(2) }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    } @empty {
+                    <div class="text-center py-20 h-full empty-card">
+                        <p>Your cart is empty.</p>
+                        <button routerLink="/" class="mt-4 cursor-pointer">CONTINUE SHOPPING</button>
+                    </div>
+                    }
+                </div>
+            </section>
+            <!-- Order Summary -->
+            <section class="lg:col-span-4">
+                <div class="sticky top-32 bg-white p-6 frame order-summary">
+                    <h2> Order Summary</h2>
+                    <div class="mt-6 space-y-4">
+                        <div class="flex justify-between sub-total">
+                            <span>SUBTOTAL</span>
+                            <span>${{ subtotal().toFixed(2) }}</span>
+                        </div>
+                        <div class="flex justify-between order-shipping">
+                            <span>SHIPPING</span>
+                            <span>
+                                {{ cartService.cart().length > 0 ? (isShippingFree ? 'FREE' : '$299.00'): '$0.00'}}
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-baseline order-total">
+                            <span>TOTAL</span>
+                            <span>${{total().toFixed(2) }}</span>
+                        </div>
+                    </div>
+
+                    <button class="mt-8 w-full">
+                        CHECKOUT NOW
+                    </button>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

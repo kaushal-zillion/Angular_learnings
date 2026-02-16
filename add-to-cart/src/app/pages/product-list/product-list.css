@@ -1,0 +1,52 @@
+
+.item-img {
+    background: #f0ece4;
+    border-bottom: 2px solid #0d0d0d;
+}
+
+.item-body {
+    div h3 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 22px;
+        letter-spacing: 0.05em;
+        color: #0d0d0d;
+        line-height: 1.1;
+    }
+
+    div p {
+        font-size: 11px;
+        color: #7a756e;
+        line-height: 1.7;
+        font-family: 'DM Mono', monospace;
+    }
+
+    div:last-child {
+        border-top: 1.5px solid #0d0d0d;
+        padding-top: 14px;
+
+        span {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: #0d0d0d;
+            line-height: 1;
+        }
+
+        button {
+            background: #0d0d0d;
+            color: #f7f3ee;
+            border: 2px solid #0d0d0d;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            padding: 8px 16px 6px;
+            transition: .3s all linear;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d4f000;
+            color: #0d0d0d;
+        }
+    }
+
+}

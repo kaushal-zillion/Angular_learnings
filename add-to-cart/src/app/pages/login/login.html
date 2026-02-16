@@ -1,0 +1,27 @@
+<section class="h-screen ">
+    <div class="flex justify-center items-center h-full">
+        <div class="w-6/12 m-auto frame ">
+            <div class="bg-black p-10 uppercase">
+                <h2 class="text-6xl text-white">Login</h2>
+                <p class="text-gray-500 font-mono mt-2 text-xl">commerce - member access</p>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-10">
+                <div>
+                    <mat-form-field class="w-full ">
+                        <mat-label>Email</mat-label>
+                        <input matInput  placeholder="Enter your email" formControlName="email" required
+                            autocomplete="email">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="w-full">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" placeholder="Enter your password" formControlName="password"
+                            required>
+                    </mat-form-field>
+                </div>
+                <button type="submit" class="border p-4 cursor-pointer w-full font-bold login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+</section>

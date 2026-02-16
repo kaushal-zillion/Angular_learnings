@@ -1,0 +1,197 @@
+.main-banner {
+    min-height: 100vh;
+    background-color: #f7f3ee;
+    padding: 48px 16px;
+    font-family: 'DM Mono', monospace;
+
+    h1 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(40px, 6vw, 72px);
+        letter-spacing: 0.05em;
+        color: #0d0d0d;
+        line-height: 1;
+        border-bottom: 3px solid #0d0d0d;
+        padding-bottom: 25px;
+    }
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 24px;
+
+
+    .card-img {
+        background-color: #f0ece4;
+        border: 2px solid #0d0d0d;
+    }
+
+    .card-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 20px;
+        letter-spacing: 0.04em;
+        color: #0d0d0d;
+        line-height: 1.1;
+    }
+
+    .card-remove-btn {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        background: transparent;
+        color: #0d0d0d;
+        border: 1.5px solid #0d0d0d;
+        padding: 4px 10px 2px;
+        transition: .2s linear all;
+        cursor: pointer;
+    }
+
+    .card-remove-btn:hover {
+        background-color: #0d0d0d;
+        color: #f7f3ee;
+    }
+
+    .card-qty-btns {
+        border: 2px solid #0d0d0d;
+
+        button {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            color: #0d0d0d;
+            border: none;
+            transition: .2s all linear;
+            cursor: pointer;
+        }
+
+        button:first-child {
+            border-right: 2px solid #0d0d0d;
+        }
+
+        button:last-child {
+            border-left: 2px solid #0d0d0d;
+        }
+
+        button:hover {
+            background-color: #d4f000;
+        }
+
+        span {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            width: 40px;
+            text-align: center;
+            color: #0d0d0d;
+        }
+    }
+
+    .card-sub-total {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 26px;
+        color: #0d0d0d;
+        line-height: 1;
+    }
+}
+
+.empty-card {
+    border: 2px dashed #c8c2b6;
+
+    p {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 28px;
+        letter-spacing: 0.06em;
+        color: #7a756e;
+    }
+
+    button {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        background-color: #0d0d0d;
+        color: #f7f3ee;
+        border: 2px solid #0d0d0d;
+        padding: 10px 24px 8px;
+        transition: .2s all linear;
+    }
+
+    button:hover {
+        background-color: #d4f000;
+        color: #0d0d0d;
+    }
+}
+
+.order-summary {
+    h2 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 28px;
+        letter-spacing: 0.05em;
+        color: #0d0d0d;
+        border-bottom: 2px solid #0d0d0d;
+        padding-bottom: 12px;
+    }
+
+    .sub-total {
+        font-size: 12px;
+        color: #7a756e;
+        letter-spacing: 0.05em;
+
+        span:last-child {
+            color: #0d0d0d;
+        }
+    }
+
+    .order-shipping {
+        font-size: 12px;
+        color: #7a756e;
+        letter-spacing: 0.05em;
+
+        span:last-child {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 14px;
+            color: #0d0d0d;
+            letter-spacing: 0.1em;
+        }
+    }
+
+    .order-total {
+        border-top: 2px solid #0d0d0d;
+        padding-top: 16px;
+
+        span:first-child {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 0.06em;
+            color: #0d0d0d;
+        }
+
+        span:last-child {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: #0d0d0d;
+            line-height: 1;
+        }
+    }
+
+    button {
+        background: #0d0d0d;
+        color: #d4f000;
+        border: 2px solid #0d0d0d;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 16px;
+        letter-spacing: 0.2em;
+        padding: 16px 24px 13px;
+        transition: .2s all linear;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #d4f000;
+        color: #0d0d0d;
+    }
+}

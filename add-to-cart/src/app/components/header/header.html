@@ -1,0 +1,20 @@
+<header>
+    <div class="container mx-auto p-4">
+        <nav>
+            <ul class="flex justify-between items-center nav">
+
+                <li><a routerLink="/">COMMERCE</a></li>
+                <li class="flex gap-2 ">
+                    <a routerLink="/cart">
+                        <ng-icon name="heroShoppingCart" class="text-xl"></ng-icon>{{ cartService.cart().length }}
+                    </a>
+                    <button class="bg-white cursor-pointer px-4 capitalize transition-all duration-300 ease-linear"
+                        (click)="loginService.setLogout()">
+                        logout
+                    </button>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
