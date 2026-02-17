@@ -1,0 +1,47 @@
+<section class="">
+    <div class="card">
+        <div class="card-header">
+            <span class="badge">User Management</span>
+            <h1 class="card-title"> {{ userId ? 'Update User' : 'Add User' }}</h1>
+        </div>
+
+        <div class="card-body">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+                <!-- Name -->
+                <div class="field">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="e.g. Aria Delacroix" formControlName="name" />
+                    <p class="hint">Displayed across the platform and in reports.</p>
+                </div>
+
+                <!-- Role -->
+                <div class="field">
+                    <label for="role">Role</label>
+                    <div class="select-wrap">
+                        <select id="role" name="role" formControlName="role">
+                            <option value="" disabled>Select a role…</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <!-- Buttons -->
+                <div class="btn-row">
+                    <a href="/" class="btn-secondary">Users</a>
+                    <button type="submit" [disabled]="userForm.invalid" class="btn-primary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 4a8 8 0 1 0 0 16A8 8 0 0 0 12 4Zm1 4.5v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H8a1 1 0 1 1 0-2h3v-3a1 1 0 0 1 2 0Z" />
+                        </svg>
+                        {{ userId ? 'Update User' : 'Add User' }}
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>

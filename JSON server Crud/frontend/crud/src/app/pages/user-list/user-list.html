@@ -1,0 +1,50 @@
+<section>
+    <div class="designer-card">
+        <div class="designer-header">
+            <span class="designer-badge">User Management</span>
+            <p class="designer-title">User List</p>
+        </div>
+
+        <div class="designer-body">
+            <div>
+                <div class="flex justify-end mb-4">
+                    <a routerLink="/add-user" class="add-btn-link">
+                        Add User
+                    </a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (user of users(); track user.id; let i = $index) {
+                        <tr class="text-center">
+                            <td class="p-2">{{ i + 1 }}</td>
+                            <td class="p-2">{{ user.name }}</td>
+                            <td class="p-2">{{ user.role }}</td>
+                            <td class="p-2 flex gap-2 justify-center">
+                                <button class="edit-btn" (click)="onEdit(user.id)">
+                                    Edit
+                                </button>
+                                <button (click)="onDelete(user.id)" class="delete-btn">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                        } @empty {
+                        <tr>
+                            <td colspan="4" class="text-center p-4">No users found.</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>

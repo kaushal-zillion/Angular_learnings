@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+:root {
+    --ink: #1a1a2e;
+    --paper: #f5f0e8;
+    --cream: #ede8dc;
+    --accent: #c8873a;
+    --accent2: #3a6bc8;
+    --line: #d0c8b8;
+    --shadow: rgba(26, 26, 46, 0.12);
+    --radius: 4px;
+}

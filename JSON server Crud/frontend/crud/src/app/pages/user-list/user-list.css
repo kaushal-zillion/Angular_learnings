@@ -1,0 +1,243 @@
+section {
+    min-height: 100vh;
+    background-color: var(--paper);
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 39px,
+            var(--line) 39px,
+            var(--line) 40px);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    padding: 3rem 2rem;
+}
+
+.designer-card {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    box-shadow: 4px 4px 0 0 var(--ink), 0 16px 48px var(--shadow);
+    overflow: hidden;
+}
+
+
+.designer-header {
+    background: var(--ink);
+    padding: 28px 36px 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.designer-header::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(200, 135, 58, 0.18);
+    pointer-events: none;
+}
+
+.designer-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+}
+
+.designer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f5f0e8;
+    line-height: 1.15;
+}
+
+.designer-body {
+    padding: 32px 36px 40px;
+}
+
+
+section.py-10,
+.container.mx-auto.px-4 {
+    all: unset;
+    display: contents;
+}
+
+/* top bar: heading + add button */
+.flex.justify-between.items-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* heading */
+h1.text-2xl.font-bold.mb-4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+/* Add User link */
+.add-btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    background: var(--ink);
+    color: #f5f0e8 !important;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    margin: 0;
+    transition: .3s all linear;
+}
+
+a.bg-green-500::before {
+    content: '+';
+    font-size: 18px;
+    line-height: 1;
+}
+
+a.bg-green-500:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(200, 135, 58, 0.28);
+}
+
+/* table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+thead tr {
+    background: var(--ink) !important;
+}
+
+thead th {
+    padding: 14px 16px;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: none;
+}
+
+thead th:first-child {
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--line);
+    transition: .3s all linear;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+
+tbody tr:hover {
+    background: rgba(200, 135, 58, 0.07);
+}
+
+tbody td {
+    padding: 13px 16px;
+    font-size: 16px;
+    color: var(--ink);
+    text-align: center;
+    border: none;
+    text-transform: capitalize;
+}
+
+tbody td:first-child {
+    text-align: left;
+    font-size: 12px;
+    color: #9a9186;
+    font-weight: 500;
+}
+
+/* empty state */
+tbody tr td[colspan="4"] {
+    padding: 40px 16px;
+    text-align: center;
+    color: #9a9186;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* action buttons cell */
+td.flex.gap-2.justify-center {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+/* Edit button */
+.edit-btn {
+    padding: 6px 16px;
+    background: transparent;
+    color: var(--accent2);
+    border: 1.5px solid var(--accent2);
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: .3s all linear;
+}
+
+.edit-btn:hover {
+    background: var(--accent2);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Delete button */
+.delete-btn {
+    padding: 6px 16px;
+    background: transparent;
+    color: var(--danger);
+    border: 1.5px solid var(--danger);
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: .3s all linear;
+}
+
+.delete-btn:hover {
+    background: var(--danger);
+    color: red;
+    transform: translateY(-1px);
+}
